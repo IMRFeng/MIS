@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="assets/favicon.ico" type="image/x-icon" />
+  <title>医院注册登记 - 医院医疗记录信息管理去中心化应用</title>
+  <link href="assets/bootstrap.min.css" rel="stylesheet">
+  <script src="./app.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="text-center">
+      <img class="d-block mx-auto mb-4" src="assets/hospital.png" alt="" width="72" height="72">
+      <h1>医院医疗记录信息管理</h1>
+    </div>
+    <div class="text-center">
+      <h2>去中心化应用示例</h2>
+    </div>
+
+    <div class="col-md-8 col-md-offset-2">
+        <div class="alert alert-danger" style="display:none;">
+            <strong>医院信息注册失败!</strong> 请查看相关配置是否正确或稍后重试.
+        </div>
+        <div class="alert alert-success" style="display:none;">
+            <strong>已成功完成医院信息注册!</strong>
+        </div>
+        
+        <h4 class="mb-3">医院信息注册登记</h4>
+
+        <div class="mb-3">
+          <label for="name">医院名字</label>
+          <input type="text" class="form-control" id="name" placeholder="" required></input>
+        </div>
+
+        <div class="mb-3">
+          <label for="tel">医院联系电话</label>
+          <input type="text" class="form-control" placeholder="" id="tel"></input>
+        </div>
+
+        <div class="mb-3">
+          <label for="province">医院所在省份</label>
+          <input type="text" class="form-control" placeholder="" id="province"></input>
+        </div>
+
+        <div class="mb-3">
+          <label for="licenseNo">医院执照号码</label>
+          <input type="text" class="form-control" placeholder="" required id="licenseNo"></input>
+        </div>
+        <hr class="mb-4">
+        <button class="btn btn-primary btn-lg btn-block" id="register" onclick="App.addNewHospital()">医院信息注册</button>
+    </div>
+  </div>
+  <hr class="mb-4">
+  <div class="text-center">
+    <span class="hint"><strong>提示:</strong> 您可以打开浏览器开发者工具来查看错误及警告信息.</span>
+  </div>
+</body>
+<script src="assets/jquery-2.2.4.min.js"></script>
+<script src="assets/bootstrap.min.js"></script>
+</html>
