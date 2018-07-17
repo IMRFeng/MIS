@@ -1,7 +1,6 @@
 import '../stylesheets/app.css'
 import { default as Web3 } from 'web3'
 
-//这里需要添加ABI以及合约的地址
 var HospitalRegContract = web3.eth.contract([{"constant":false,"inputs":[{"name":"_address","type":"address"},{"name":"_name","type":"string"},{"name":"_tel","type":"string"},{"name":"_licenceNo","type":"string"},{"name":"_province","type":"string"}],"name":"addNewHospital","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"_key","type":"address"}],"name":"getHospital","outputs":[{"name":"","type":"string"},{"name":"","type":"string"},{"name":"","type":"uint256"},{"name":"","type":"string"},{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"getHospitalCount","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"}]);
 var HospitalReg = HospitalRegContract.at('0x471c92f915ae766c4964eedc300e5b8ff41e443c')
 
@@ -10,8 +9,6 @@ var account
 
 window.App = {
   start: function () {
-    var self = this
-
     web3.eth.getAccounts(function (err, accs) {
       if (err != null) {
         alert('There was an error fetching your accounts.')
@@ -29,8 +26,6 @@ window.App = {
     })
   },
   addNewHospital: function () {
-    var self = this
-
     var name = document.getElementById('name').value
     var tel = document.getElementById('tel').value
     var licenseNo = document.getElementById('licenseNo').value
@@ -38,16 +33,24 @@ window.App = {
 
     HospitalReg.addNewHospital(account, name, tel, licenseNo, province, (err, res) => {
       if (err) {
-        console.log(err)
+        console.error(err)
+        $('.alert-success').css('display', 'none')
         $('.alert-danger').css('display', 'block')
       } else {
+        $('.alert-danger').css('display', 'none')
         $('.alert-success').css('display', 'block')
       }
     })
   },
 
-  getHospital: function () {
+  getHospital: function () { // @TODO This is a task for students to implent list out all hospitals
     // var hospitalAddress = document.getElementById('hospitalAddress')
+
+    // 1. Get the list of hospital addresses
+
+    // 2. Loop the addresses and call the contract getHospital to get the hospital's information
+
+    // 3. Bingding the results with HTML
   }
 }
 
